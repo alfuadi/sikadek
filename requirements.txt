@@ -4,3 +4,6 @@ streamlit-folium
 scipy
 siphon
 metpy
+sklearn
+requests
+beautifulsoup4
