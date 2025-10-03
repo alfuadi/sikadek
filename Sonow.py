@@ -184,8 +184,8 @@ if output and 'last_clicked' in output:
 
     with st.spinner("Mengambil dan memproses data..."):
         # Cari stasiun terdekat
-        sounding_station = find_nearest_station(target_lat, target_lon, 'SoundingStations.csv')
-        synop_station = find_nearest_station(target_lat, target_lon, 'SynopStations.csv')
+        sounding_station = find_nearest_station(target_lat, target_lon, 'https://raw.githubusercontent.com/alfuadi/sikadek/refs/heads/main/SoundingStations.csv')
+        synop_station = find_nearest_station(target_lat, target_lon, 'https://raw.githubusercontent.com/alfuadi/sikadek/refs/heads/main/SynopStations.csv')
         st.success(f"Stasiun rujukan: {sounding_station['loc']}")
         
         sounding_df = fetch_sounding_data(sounding_station['id'])
@@ -238,4 +238,5 @@ if output and 'last_clicked' in output:
         st.warning("Data tidak cukup untuk pelatihan dan prediksi.")
 else:
     st.info("Silakan pilih titik lokasi pada peta terlebih dahulu untuk memulai prediksi.")
+
 
