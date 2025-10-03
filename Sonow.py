@@ -1,3 +1,4 @@
+from streamlit_folium import st_folium
 import streamlit as st
 from streamlit_folium import st_folium
 import folium
@@ -237,3 +238,4 @@ if output and 'last_clicked' in output:
         st.warning("Data tidak cukup untuk pelatihan dan prediksi.")
 else:
     st.info("Silakan pilih titik lokasi pada peta terlebih dahulu untuk memulai prediksi.")
+
