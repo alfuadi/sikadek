@@ -233,12 +233,13 @@ if output and 'last_clicked' in output:
         mlp_prob = mlp.predict_proba(X_latest_scaled)[0][1] * 100
 
         validdate = latest_data["Date"]
-        st.markdown(f"### Prediksi Hujan 24 Jam ke Depan ({pd.to_datetime(validdate)} - {((pd.to_datetime(validdate))+timedelta(1))}):")
+        st.markdown(f"### Prediksi Hujan 24 Jam ke Depan ({validdate.iloc[0]} - {(validdate.iloc[0])}):")
         st.success(f"Peluang hujan: **{rf_prob:.1f}% (RF)** ; **{mlp_prob:.1f}% (MLP)**")
     else:
         st.warning("Data tidak cukup untuk pelatihan dan prediksi.")
 else:
     st.info("Silakan pilih titik lokasi pada peta terlebih dahulu untuk memulai prediksi.")
+
 
 
 
