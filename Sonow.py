@@ -33,7 +33,7 @@ def find_nearest_station(lat, lon, station_file):
 # ------------------------------
 # 3. AMBIL DATA SOUNDING 10 HARI
 # ------------------------------
-def fetch_sounding_data(wmo_id, days=30):
+def fetch_sounding_data(wmo_id, days=90):
     ##progress_bar = st.progress(0)
     status_text = st.empty()
     ip = 0
@@ -108,7 +108,7 @@ def fetch_sounding_data(wmo_id, days=30):
 # ------------------------------
 # 4. SCRAPING CURAH HUJAN OGIMET
 # ------------------------------
-def fetch_rain_data(wmo_id, periods=30):
+def fetch_rain_data(wmo_id, periods=90):
     validdate = datetime.now(UTC)
     year, month, day, hour = validdate.year, validdate.month, validdate.day, validdate.hour
     url = f"https://www.ogimet.com/cgi-bin/gsynres?lang=en&ind={wmo_id}&decoded=yes&ndays={periods}&ano={year}&mes={month}&day={day}&hora={hour}"
@@ -239,6 +239,7 @@ if output and 'last_clicked' in output:
         st.warning("Data tidak cukup untuk pelatihan dan prediksi.")
 else:
     st.info("Silakan pilih titik lokasi pada peta terlebih dahulu untuk memulai prediksi.")
+
 
 
 
