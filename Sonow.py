@@ -102,7 +102,7 @@ def fetch_sounding_data(wmo_id, days=30):
             print(f"  ⛔ {time} gagal: {e}")
             continue
         status_text.text(f"Pengumpulan data sounding...")
-        progress_bar.progress((ip + 1) / 10)
+        ## progress_bar.progress((ip + 1) / 10)
     return pd.DataFrame(results)
 
 # ------------------------------
@@ -232,11 +232,12 @@ if output and 'last_clicked' in output:
         rf_prob = rf.predict_proba(X_latest_scaled)[0][1] * 100
         mlp_prob = mlp.predict_proba(X_latest_scaled)[0][1] * 100
 
-        st.markdown("### Prediksi Hujan 24 Jam ke Depan:")
+        st.markdown(f"### Prediksi Hujan 24 Jam ke Depan ({validdate.strftime('00:00 %d-%m-%Y')} - {(validdate+datetime.timedelta(1)).strftime('00:00 %d-%m-%Y')}):")
         st.success(f"Peluang hujan: **{rf_prob:.1f}% (RF)** ; **{mlp_prob:.1f}% (MLP)**")
     else:
         st.warning("Data tidak cukup untuk pelatihan dan prediksi.")
 else:
     st.info("Silakan pilih titik lokasi pada peta terlebih dahulu untuk memulai prediksi.")
+
 
 
